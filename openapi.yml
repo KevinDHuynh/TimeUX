@@ -1,0 +1,36 @@
+openapi: 3.0.2
+info:
+  title: TimeUX
+  version: 0.0.1
+paths:
+  /login:
+    post:
+      summary: Log into the system.
+      responses:
+        '200':
+          description: Confirmation
+  /setstatus:
+    get:
+      summary: Set current status of user.
+      responses:
+        '200':
+          description: Confirmation
+  /logout:
+    get:
+      summary: Log out of system.
+      responses:
+        '200':
+          description: Confirmation
+  /sendreminder:
+    get:
+      summary: Send reminder to user.
+      responses:
+        '200': 
+          description: Reminder message is sent
+  /sendmessage:
+    get:
+      summary: Send message to user.
+      responses:
+        '200': 
+          description: Message is sucessfully send
+          
