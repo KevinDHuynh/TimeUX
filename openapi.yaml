@@ -1,0 +1,53 @@
+openapi: 3.0.2
+info:
+  title: TimeUX
+  version: 0.0.2
+
+servers:
+  - url: http://137.135.120.16
+    description: Azure VM server
+paths:
+  /login:
+    post:
+      summary: Log into the system.
+      responses:
+        '200':
+          description: Confirmation
+        default:
+          description: Unexpected error
+  /status:
+    get:
+      summary: Fetch current status of user.
+      responses:
+        '200':
+          description: Confirmation
+    post:
+      summary: Set current status of user.
+      responses:
+        '200':
+          description: Confirmation
+  /logout:
+    get:
+      summary: Log out of system.
+      responses:
+        '200':
+          description: Confirmation
+  /sendreminder:
+    get:
+      summary: Send reminder to user.
+      responses:
+        '200': 
+          description: Reminder message is sent
+  /sendmessage:
+    get:
+      summary: Send message.
+      parameters: 
+        - name: message
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200': 
+          description: Message is sucessfully send
+          
