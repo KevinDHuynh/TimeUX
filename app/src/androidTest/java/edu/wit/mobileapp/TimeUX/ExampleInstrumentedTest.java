@@ -1,4 +1,4 @@
-package edu.wit.mobileapp.timeuxtest;
+package edu.wit.mobileapp.TimeUX;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("edu.wit.mobileapp.timeuxtest", appContext.getPackageName());
+        assertEquals("edu.wit.mobileapp.TimeUX", appContext.getPackageName());
     }
 }

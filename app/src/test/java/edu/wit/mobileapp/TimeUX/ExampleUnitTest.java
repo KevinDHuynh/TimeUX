@@ -1,4 +1,4 @@
-package edu.wit.mobileapp.timeuxtest;
+package edu.wit.mobileapp.TimeUX;
 
 import org.junit.Test;
 

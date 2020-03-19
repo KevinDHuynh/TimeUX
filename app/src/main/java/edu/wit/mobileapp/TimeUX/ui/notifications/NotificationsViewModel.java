@@ -1,4 +1,4 @@
-package edu.wit.mobileapp.timeuxtest.ui.notifications;
+package edu.wit.mobileapp.TimeUX.ui.notifications;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
