@@ -1,4 +1,4 @@
-package edu.wit.mobileapp.TimeUX.ui;
+package edu.wit.mobileapp.TimeUX.ui.login;
 
 import android.util.Patterns;
 
@@ -6,8 +6,6 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import edu.wit.mobileapp.TimeUX.LoginRepository;
-import edu.wit.mobileapp.TimeUX.Result;
 import edu.wit.mobileapp.TimeUX.model.LoggedInUser;
 import edu.wit.mobileapp.TimeUX.R;
 

@@ -1,6 +1,7 @@
-package edu.wit.mobileapp.TimeUX.ui;
+package edu.wit.mobileapp.TimeUX.ui.login;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -19,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import edu.wit.mobileapp.TimeUX.MainActivity;
 import edu.wit.mobileapp.TimeUX.R;
 
 public class LoginActivity extends AppCompatActivity {
@@ -110,6 +112,7 @@ public class LoginActivity extends AppCompatActivity {
                 loadingProgressBar.setVisibility(View.VISIBLE);
                 loginViewModel.login(usernameEditText.getText().toString(),
                         passwordEditText.getText().toString());
+                startActivity(new Intent(LoginActivity.this, MainActivity.class));
             }
         });
     }

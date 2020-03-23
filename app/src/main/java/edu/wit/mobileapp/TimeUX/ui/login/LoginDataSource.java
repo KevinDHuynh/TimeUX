@@ -1,4 +1,4 @@
-package edu.wit.mobileapp.TimeUX;
+package edu.wit.mobileapp.TimeUX.ui.login;
 
 import java.io.IOException;
 

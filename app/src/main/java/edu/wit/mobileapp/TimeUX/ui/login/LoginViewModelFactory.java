@@ -1,11 +1,8 @@
-package edu.wit.mobileapp.TimeUX.ui;
+package edu.wit.mobileapp.TimeUX.ui.login;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
-
-import edu.wit.mobileapp.TimeUX.LoginDataSource;
-import edu.wit.mobileapp.TimeUX.LoginRepository;
 
 /**
  * ViewModel provider factory to instantiate LoginViewModel.

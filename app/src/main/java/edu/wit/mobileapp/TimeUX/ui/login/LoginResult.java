@@ -1,4 +1,4 @@
-package edu.wit.mobileapp.TimeUX.ui;
+package edu.wit.mobileapp.TimeUX.ui.login;
 
 import androidx.annotation.Nullable;
 

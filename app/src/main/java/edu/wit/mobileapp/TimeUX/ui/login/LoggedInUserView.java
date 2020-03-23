@@ -1,4 +1,4 @@
-package edu.wit.mobileapp.TimeUX.ui;
+package edu.wit.mobileapp.TimeUX.ui.login;
 
 /**
  * Class exposing authenticated user details to the UI.
