@@ -1,0 +1,16 @@
+Index: app/src/main/java/edu/wit/mobileapp/TimeUX/Notification.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/edu/wit/mobileapp/TimeUX/Notification.java	(date 1586132196000)
++++ app/src/main/java/edu/wit/mobileapp/TimeUX/Notification.java	(date 1586132662858)
+@@ -7,7 +7,7 @@
+ public class Notification extends Application {
+     public static final String CHANNEL_1_ID = "Messages";
+     public static final String CHANNEL_2_ID= "Reminder";
+-    public static final String CHANNEL_3_ID="llll";
++    public static final String CHANNEL_3_ID="lllll";
+ 
+     @Override
+     public void onCreate() {
