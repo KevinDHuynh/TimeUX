@@ -1,6 +1,10 @@
 package edu.wit.mobileapp.TimeUX.ui.login;
 
+import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.Unirest;
+
 import java.io.IOException;
+import java.util.UUID;
 
 import edu.wit.mobileapp.TimeUX.model.LoggedInUser;
 
@@ -13,15 +17,22 @@ public class LoginDataSource {
 
         try {
             // TODO: handle loggedInUser authentication
-            LoggedInUser fakeUser =
-                    new LoggedInUser(
-                            java.util.UUID.randomUUID().toString(),
-                            "Jane Doe");
-            return new Result.Success<>(fakeUser);
+            HttpResponse<String> response =
+                    Unirest.get("137.135.120.16:8080/users")
+                            .basicAuth(username, password)
+                            .asString();
+            if (response.getCode() == 200) {
+                LoggedInUser fakeUser =
+                        new LoggedInUser(
+                                UUID.randomUUID().toString(),
+                                username);
+                return new Result.Success<>(fakeUser);
+            } else throw new IOException();
         } catch (Exception e) {
             return new Result.Error(new IOException("Error logging in", e));
         }
     }
+
 
     public void logout() {
         // TODO: revoke authentication
