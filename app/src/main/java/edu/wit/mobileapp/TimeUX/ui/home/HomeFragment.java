@@ -34,13 +34,7 @@ public class HomeFragment extends Fragment {
         });
         Button button = root.findViewById(R.id.button);
         Intent intent  = new Intent(getActivity(), ClockHours.class);
-        button.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view) {
-                startActivity(intent);
-
-            }
-
-        });
+        button.setOnClickListener(view -> startActivity(intent));
         return root;
     }
 }
