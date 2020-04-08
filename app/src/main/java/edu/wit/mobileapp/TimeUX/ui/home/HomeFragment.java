@@ -1,13 +1,15 @@
 package edu.wit.mobileapp.TimeUX.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -29,6 +31,15 @@ public class HomeFragment extends Fragment {
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
             }
+        });
+        Button button = root.findViewById(R.id.button);
+        Intent intent  = new Intent(getActivity(), ClockHours.class);
+        button.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view) {
+                startActivity(intent);
+
+            }
+
         });
         return root;
     }
