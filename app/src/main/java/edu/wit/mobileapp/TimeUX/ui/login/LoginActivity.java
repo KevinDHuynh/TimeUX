@@ -33,10 +33,7 @@ public class LoginActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_login)
     public void submit(View view) {
-        Intent intent  = new Intent(LoginActivity.this, MainActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-        //login();
+        login();
     }
     public void login() {
         Log.d(TAG, "Login");
@@ -59,14 +56,12 @@ public class LoginActivity extends AppCompatActivity {
         // TODO: Implement your own authentication logic here.
 
         new android.os.Handler().postDelayed(
-                new Runnable() {
-                    public void run() {
-                        // On complete call either onLoginSuccess or onLoginFailed
+                () -> {
+                    // On complete call either onLoginSuccess or onLoginFailed
 
-                        onLoginSuccess();
-                        // onLoginFailed();
-                        progressDialog.dismiss();
-                    }
+                    onLoginSuccess();
+                    // onLoginFailed();
+                    progressDialog.dismiss();
                 }, 3000);
     }
 
@@ -78,7 +73,8 @@ public class LoginActivity extends AppCompatActivity {
 
     public void onLoginSuccess() {
         _loginButton.setEnabled(true);
-        Intent intent  = new Intent(this, MainActivity.class);
+        Intent intent  = new Intent(LoginActivity.this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
         finish();
     }
