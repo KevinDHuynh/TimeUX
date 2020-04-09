@@ -11,6 +11,11 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.Unirest;
+
+import java.io.IOException;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -19,7 +24,8 @@ import edu.wit.mobileapp.TimeUX.R;
 
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
-
+    private static volatile Boolean LoginSuccess = Boolean.FALSE;
+    
     @BindView(R.id.input_email) EditText _emailText;
     @BindView(R.id.input_password) EditText _passwordText;
     @BindView(R.id.btn_login) Button _loginButton;
@@ -33,7 +39,9 @@ public class LoginActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_login)
     public void submit(View view) {
-        login();
+
+            login();
+
     }
     public void login() {
         Log.d(TAG, "Login");
@@ -53,16 +61,55 @@ public class LoginActivity extends AppCompatActivity {
         String email = _emailText.getText().toString();
         String password = _passwordText.getText().toString();
 
+        new Thread(() -> {
         // TODO: Implement your own authentication logic here.
+
+        try {
+
+            HttpResponse<String> response =
+                    Unirest.get("http://137.135.120.16:8080/users/")
+                            .basicAuth("admin", "secret")
+                            .header("content-type", "application/json")
+                            .asString();
+
+
+            if (response.getCode() == 200) {
+                Log.d("LOGINEXCEPTION","Login info: " + response.getBody());
+                if(response.getBody().contains("\"username\":\""+email+"\"")){
+                    String s = response.getBody().substring(0, response.getBody().indexOf(email));
+                    String FullName = s.substring(s.lastIndexOf("fullname")+11,s.lastIndexOf("password")-3);
+                    s = s.substring(s.lastIndexOf("password")+11,s.length()-14);
+                    if(password.equals(s)){
+                        LoginSuccess = Boolean.TRUE;
+                    }
+                    else{
+                        throw new IOException();
+                    }
+                }
+                else{
+                    throw new IOException();
+                }
+            }
+            else{
+                throw new IOException();
+            }
+        }catch(Exception e){
+            Log.d("LOGINEXCEPTION","login() exception is reached!" + e);
+        }
+        }).start();
 
         new android.os.Handler().postDelayed(
                 () -> {
                     // On complete call either onLoginSuccess or onLoginFailed
-
-                    onLoginSuccess();
-                    // onLoginFailed();
+                    if(LoginSuccess) {
+                        onLoginSuccess();
+                    }
+                    else {
+                        onLoginFailed();
+                    }
                     progressDialog.dismiss();
                 }, 3000);
+
     }
 
     @Override
