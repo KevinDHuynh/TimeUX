@@ -9,4 +9,21 @@
         <item>reply</item>
         <item>reply_all</item>
     </string-array>
+
+    <string-array name="status_values">
+        <item>In</item>
+        <item>End of Day</item>
+        <item>Out of Office</item>
+        <item>Break</item>
+        <item>Meeting</item>
+        <item>Vacation</item>
+    </string-array>
+
+    <string-array name="location_values">
+        <item>Office</item>
+        <item>Home</item>
+        <item>Lunch</item>
+        <item>Conference</item>
+
+    </string-array>
 </resources>

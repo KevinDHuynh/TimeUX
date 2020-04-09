@@ -23,8 +23,8 @@
             android:name=".MainActivity"
             android:label="TimeUX" />
         <activity
-            android:name="ui.home.ClockHours"
-            android:label="TimeUX" />
+            android:name=".ui.home.ClockHours"
+            android:label="Set Status" />
         <activity
             android:name=".ui.settings.SettingsActivity"
             android:label="@string/title_activity_settings">

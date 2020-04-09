@@ -23,13 +23,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="144dp"
-        android:layout_marginTop="27dp"
-        android:layout_marginBottom="423dp"
+        android:layout_marginTop="95dp"
+        android:layout_marginEnd="149dp"
+        android:layout_marginBottom="370dp"
         android:text="Clock Hours"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView"
@@ -38,7 +41,9 @@
         android:layout_marginStart="108dp"
         android:layout_marginTop="112dp"
         android:layout_marginEnd="109dp"
+        android:layout_marginBottom="95dp"
         android:text="It is currently March 25th 2020"
+        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
