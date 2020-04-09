@@ -62,21 +62,17 @@ public class LoginActivity extends AppCompatActivity {
         String password = _passwordText.getText().toString();
 
         new Thread(() -> {
-        // TODO: Implement your own authentication logic here.
 
         try {
 
             HttpResponse<String> response =
-                    Unirest.get("http://137.135.120.16:8080/")
-                            .basicAuth(email, password)
+                    Unirest.get("http://137.135.120.16:8080/users/")
+                            .basicAuth("admin", "secret")
                             .header("content-type", "application/json")
                             .asString();
 
 
             if (response.getCode() == 200) {
-                LoginSuccess = true;
-                /*
-
                 Log.d("LOGINEXCEPTION","Login info: " + response.getBody());
                 if(response.getBody().contains("\"username\":\""+email+"\"")){
                     String s = response.getBody().substring(0, response.getBody().indexOf(email));
@@ -92,8 +88,6 @@ public class LoginActivity extends AppCompatActivity {
                 else{
                     throw new IOException();
                 }
-
-                 **/
             }
             else{
                 throw new IOException();
