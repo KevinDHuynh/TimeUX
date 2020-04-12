@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.Unirest;
 
@@ -21,6 +22,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.wit.mobileapp.TimeUX.MainActivity;
 import edu.wit.mobileapp.TimeUX.R;
+
 
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
@@ -92,6 +94,7 @@ public class LoginActivity extends AppCompatActivity {
             else{
                 throw new IOException();
             }
+            Unirest.shutdown();
         }catch(Exception e){
             Log.d("LOGINEXCEPTION","login() exception is reached!" + e);
         }

@@ -3,6 +3,7 @@ package edu.wit.mobileapp.TimeUX.ui.home;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -12,8 +13,12 @@ import android.widget.Spinner;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+
+import com.mashape.unirest.http.*;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.concurrent.Future;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -60,9 +65,36 @@ public class ClockHours extends AppCompatActivity {
         String date = dateF.format(now);
         String time = timeF.format(now);
 
-        //TODO submit items to database
+
+
+            try{
+                Future<HttpResponse<JsonNode>> response =
+                        Unirest.post("http://137.135.120.16:8080/TimeTracking")
+                                .basicAuth("admin", "secret")
+                                .header("accept","application/json")
+                                .header("content-type","application/json")
+                                .body("[{\"User\":\"" +"sestabrook" //TODO replace sestabrook with user login creds
+                                        +"\",\"Date\":\""+date
+                                        +"\",\"Time\":\""+time
+                                        +"\",\"Time\":\""+time
+                                        +"\",\"Status\":\""+spinner
+                                        +"\",\"Location\":\""+location
+                                        +"\",\"Comment\":\""+comment+"\"}]")
+                                .asJsonAsync();
+
+
+                while(!response.isDone()) {
+                    Thread.sleep(300);
+                }
+
+            } catch (Exception e) {
+                Log.d("LOGINEXCEPTION","An exception occurred clocking hours: " + e);
+            }
+        //}).start();
 
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+
     }
+
 }
