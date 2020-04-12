@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
     private static volatile Boolean LoginSuccess = Boolean.FALSE;
     public String fullname = "";
-    public String username = "";
+    public String email = "";
     @BindView(R.id.input_email) EditText _emailText;
     @BindView(R.id.input_password) EditText _passwordText;
     @BindView(R.id.btn_login) Button _loginButton;
@@ -61,7 +61,7 @@ public class LoginActivity extends AppCompatActivity {
         progressDialog.setMessage("Authenticating...");
         progressDialog.show();
 
-        String email = _emailText.getText().toString();
+        email = _emailText.getText().toString();
         String password = _passwordText.getText().toString();
 
         new Thread(() -> {
@@ -126,7 +126,7 @@ public class LoginActivity extends AppCompatActivity {
         Intent intent  = new Intent(LoginActivity.this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.putExtra("fullname",fullname);
-        intent.putExtra("username",username);
+        intent.putExtra("username",email);
         startActivity(intent);
         finish();
     }
