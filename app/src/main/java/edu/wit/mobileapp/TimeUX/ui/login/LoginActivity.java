@@ -27,7 +27,8 @@ import edu.wit.mobileapp.TimeUX.R;
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
     private static volatile Boolean LoginSuccess = Boolean.FALSE;
-    
+    public String fullname = "";
+    public String username = "";
     @BindView(R.id.input_email) EditText _emailText;
     @BindView(R.id.input_password) EditText _passwordText;
     @BindView(R.id.btn_login) Button _loginButton;
@@ -78,7 +79,7 @@ public class LoginActivity extends AppCompatActivity {
                 Log.d("LOGINEXCEPTION","Login info: " + response.getBody());
                 if(response.getBody().contains("\"username\":\""+email+"\"")){
                     String s = response.getBody().substring(0, response.getBody().indexOf(email));
-                    String FullName = s.substring(s.lastIndexOf("fullname")+11,s.lastIndexOf("password")-3);
+                    fullname = s.substring(s.lastIndexOf("fullname")+11,s.lastIndexOf("password")-3);
                     s = s.substring(s.lastIndexOf("password")+11,s.length()-14);
                     if(password.equals(s)){
                         LoginSuccess = Boolean.TRUE;
@@ -124,6 +125,8 @@ public class LoginActivity extends AppCompatActivity {
         _loginButton.setEnabled(true);
         Intent intent  = new Intent(LoginActivity.this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.putExtra("fullname",fullname);
+        intent.putExtra("username",username);
         startActivity(intent);
         finish();
     }

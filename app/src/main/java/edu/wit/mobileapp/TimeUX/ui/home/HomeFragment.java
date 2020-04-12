@@ -19,7 +19,8 @@ import edu.wit.mobileapp.TimeUX.R;
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
-
+    public String fullname;
+    public String username;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
@@ -33,7 +34,12 @@ public class HomeFragment extends Fragment {
             }
         });
         Button button = root.findViewById(R.id.button);
+        Intent lastIntent = getActivity().getIntent();
+        fullname = lastIntent.getStringExtra("fullname");
+        username = lastIntent.getStringExtra("username");
         Intent intent  = new Intent(getActivity(), ClockHours.class);
+        intent.putExtra("fullname",fullname);
+        intent.putExtra("username",username);
         button.setOnClickListener(view -> startActivity(intent));
         return root;
     }

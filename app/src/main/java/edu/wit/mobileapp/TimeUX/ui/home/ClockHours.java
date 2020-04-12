@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,9 +29,11 @@ import edu.wit.mobileapp.TimeUX.R;
 
 public class ClockHours extends AppCompatActivity {
 
+    public String fullname;
     public String username;
     public String date;
 
+    @BindView(R.id.username) TextView username_;
     @BindView(R.id.spinner_status) Spinner statusSpinner_;
     @BindView(R.id.spinner_location) Spinner locationSpinner_;
     @BindView(R.id.edit_comment) EditText commentEdit_;
@@ -50,6 +53,11 @@ public class ClockHours extends AppCompatActivity {
                 R.array.location_values, android.R.layout.simple_spinner_item);
         locationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         locationSpinner_.setAdapter(locationAdapter);
+
+        Intent intent = getIntent();
+        fullname = intent.getStringExtra("fullname");
+        username = intent.getStringExtra("username");
+        username_.setText("Set status for " + fullname);
     }
     @RequiresApi(api = Build.VERSION_CODES.O)
     @OnClick(R.id.btn_updateStatus)
@@ -73,7 +81,7 @@ public class ClockHours extends AppCompatActivity {
                                 .basicAuth("admin", "secret")
                                 .header("accept","application/json")
                                 .header("content-type","application/json")
-                                .body("[{\"User\":\"" +"sestabrook" //TODO replace sestabrook with user login creds
+                                .body("[{\"User\":\"" + username
                                         +"\",\"Date\":\""+date
                                         +"\",\"Time\":\""+time
                                         +"\",\"Time\":\""+time
