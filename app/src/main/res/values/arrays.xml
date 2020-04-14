@@ -45,5 +45,17 @@
         <item>-1</item>
     </string-array>
 
+    <string-array name="messages_array">
+        <item>System Reminder (12:00am) - Did you forget to clock in?</item>
+        <item>System Reminder (4:00pm) - Did you forget to clock out?</item>
+        <item>Message from Harry - Are you coming in the office today? </item>
+        <item>Message from Manager - Your time off request for coming wednesday has been approved.</item>
+        <item>Message from Amanda - Would you like to exchange shift with me?</item>
+        <item>Message from Chris - Lets go out for lunch today.</item>
+        <item>Message from Payroll Services - Your paycheck for last month has been deposited to your account </item>
+        <item>Message from Dan - You are all set!</item>
+    </string-array>
+
+
 
 </resources>

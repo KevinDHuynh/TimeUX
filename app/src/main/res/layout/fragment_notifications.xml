@@ -11,10 +11,9 @@
         android:layout_height="match_parent">
 
         <ListView
-            android:entries="@array/settings_list_preference_titles"
+            android:entries="@array/messages_array"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
     </FrameLayout>
-
 </LinearLayout>

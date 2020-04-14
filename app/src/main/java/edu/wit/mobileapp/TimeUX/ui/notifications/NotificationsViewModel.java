@@ -21,7 +21,7 @@ public class NotificationsViewModel extends ViewModel {
 
         LiveData<List<String>> getMessageList() {
             if ( MessageList == null) {
-                 MessageList = new MutableLiveData<>();
+                MessageList = new MutableLiveData<>();
                 loadMessages();
             }
             return MessageList;
@@ -29,13 +29,13 @@ public class NotificationsViewModel extends ViewModel {
 
         private void loadMessages() {
             //
-                List<String> messageStringList = new ArrayList<>();
-                messageStringList.add("Messages");
-                messageStringList.add("Reminders");
-                long seed = System.nanoTime();
-                Collections.shuffle(messageStringList, new Random(seed));
+            List<String> messageStringList = new ArrayList<>();
+            messageStringList.add("Messages");
+            messageStringList.add("Reminders");
+            long seed = System.nanoTime();
+            Collections.shuffle(messageStringList, new Random(seed));
 
-                MessageList.setValue(messageStringList);
+            MessageList.setValue(messageStringList);
         }
 
         @Override

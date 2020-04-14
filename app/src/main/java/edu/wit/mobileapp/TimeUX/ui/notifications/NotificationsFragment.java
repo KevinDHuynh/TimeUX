@@ -19,9 +19,8 @@ public class NotificationsFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         notificationsViewModel =
                 ViewModelProviders.of(this).get(NotificationsViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_notifications, container, false);
 
-        return root;
+        return inflater.inflate(R.layout.fragment_notifications, container, false);
     }
 }
 
