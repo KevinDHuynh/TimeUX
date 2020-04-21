@@ -4,7 +4,7 @@
 - TimeUX is a Time and Attendance product that allows for Employees to clock hours and set their current working status
 - The Server is cloud-hosted and contains a database and REST API for communication and submission 
 - The Client is an Android App that allows for users to easily sign in clock hours either on premises or remotely
-- The goal of the project is to build upon our knowledge of app development, server architecture, and general project management skills to - accomplish all of our specific use cases.
+- The goal of the project is to build upon our knowledge of app development, server architecture, and general project management skills to accomplish all of our specific use cases.
 
 ## Client Implementation
 The Android client uses the following libraries:
